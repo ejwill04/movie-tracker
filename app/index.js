@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/app';
 import MovieIndex from './components/movieIndex';
+import Login from './components/login/';
+import Favorites from './components/favorites/';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
 require('./assets/styles/main');
