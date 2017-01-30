@@ -11,6 +11,6 @@ export default class App extends Component {
         <h1>Movie Watcher</h1>
         {this.props.children}
       </div>
-    )
+    );
   }
 }

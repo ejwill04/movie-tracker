@@ -4,12 +4,16 @@ import App from './components/app';
 import MovieIndex from './components/movieIndex';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
+require('./assets/styles/main');
+
 const router = (
     <Router history={browserHistory} >
       <Route path='/' component={App}>
         <IndexRoute component={MovieIndex} />
+        <Route component={Login} path='/login' />
+        <Route component={Favorites} path='/favorites' />
       </Route>
     </Router>
-)
+);
 
 ReactDOM.render(router, document.getElementById('main'))
