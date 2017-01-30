@@ -4,8 +4,7 @@
   "description": "MeatMeet",
   "scripts": {
     "build": "webpack --config ./webpack.config.js",
-    "start": "webpack-dev-server --inline --content-base --history-api-fallback",
-    "dev-server": "webpack-dev-server --hot --inline --content-base --history-api-fallback"
+    "start": "webpack-dev-server --hot --inline --history-api-fallback"
   },
   "keywords": [],
   "author": "",
