@@ -1,0 +1,10 @@
+@import 'variables';
+
+#main h1 {
+  background-color: $background;
+  color: $text;
+}
+
+#main {
+  text-align: center;
+}

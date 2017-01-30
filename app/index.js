@@ -6,7 +6,7 @@ import Login from './components/login/';
 import Favorites from './components/favorites/';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
-require('./assets/styles/main');
+require('./styles/main');
 
 const router = (
     <Router history={browserHistory} >
@@ -18,4 +18,4 @@ const router = (
     </Router>
 );
 
-ReactDOM.render(router, document.getElementById('main'))
+ReactDOM.render(router, document.getElementById('main'));
