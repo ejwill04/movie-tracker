@@ -8,8 +8,8 @@ export default class App extends Component {
     let addMovies = this.props.addMovies;
     fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}`)
       .then(response => response.json())
-        .then(payload => addMovies(payload))
-          .catch(error => error);
+      .then(payload => addMovies(payload))
+      .catch(error => console.log(error));
   }
 
   toggleBtnPath() {

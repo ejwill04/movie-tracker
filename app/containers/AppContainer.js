@@ -4,7 +4,7 @@ import App from '../components/app';
 
 const mapStateToProps = (state) => {
   // console.log(state);
-  return { movies: state.data };
+  // return { movies: state.data };
 };
 
 const mapDispatchToProps = (dispatch) => {

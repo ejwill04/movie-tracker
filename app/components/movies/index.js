@@ -8,6 +8,7 @@ export default class Movies extends Component {
       <article key={m.id} className='movie-item'>
         <p>{m.title}</p>
         <img src={`https://image.tmdb.org/t/p/w500/${m.poster_path}`} alt={`movie-poster-${m.title}`} height='300' />
+        <input className='btn btn-favorite' type='button' value='favorite' />
       </article>
     ));
 

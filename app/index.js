@@ -6,7 +6,6 @@ import rootReducer from './reducers';
 
 import ReactDOM from 'react-dom';
 import AppContainer from './containers/AppContainer';
-// import App from './containers/App';
 import MoviesContainer from './containers/MoviesContainer';
 import Login from './components/login';
 import Favorites from './components/favorites';
