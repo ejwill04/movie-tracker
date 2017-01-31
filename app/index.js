@@ -6,7 +6,7 @@ import rootReducer from './reducers';
 
 import ReactDOM from 'react-dom';
 import App from './components/app';
-import MovieIndex from './components/movieIndex';
+import Movies from './components/movies';
 import Login from './components/login';
 import Favorites from './components/favorites';
 
@@ -17,13 +17,13 @@ const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_
 const store = createStore(rootReducer, devTools);
 
 const router = (
-    <Router history={browserHistory} >
-      <Route path='/' component={App}>
-        <IndexRoute component={MovieIndex} />
-        <Route component={Login} path='/login' />
-        <Route component={Favorites} path='/favorites' />
-      </Route>
-    </Router>
+  <Router history={browserHistory} >
+    <Route path='/' component={App}>
+      <IndexRoute component={Movies} />
+      <Route component={Login} path='/login' />
+      <Route component={Favorites} path='/favorites' />
+    </Route>
+  </Router>
 );
 
 ReactDOM.render(<Provider store={store} >{router}</Provider>, document.getElementById('main'));

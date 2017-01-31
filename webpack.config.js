@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-  devtool: '#source-map',
+  devtool: 'source-map',
   context: __dirname,
   entry: [
     './app/index.js',
@@ -17,14 +17,21 @@ module.exports = {
       {
         test: /.jsx?$/,
         loader: 'babel-loader',
-        include: path.join(__dirname, 'app'),
         exclude: /node_modules/,
-        query: {
-          presets: ['es2015', 'react'],
-        },
       },
-      { test: /\.css$/, loader: 'style!css' },
-      { test: /\.scss$/, loader: 'style!css!sass' },
+      {
+        test: /\.scss$/,
+        loaders: [
+          'style-loader',
+          'css-loader',
+          'sass-loader',
+        ],
+      },
+    ],
+  },
+  sassLoader: {
+    includedPaths: [
+      path.join(__dirname, 'node_modules/normalize-scss/sass'),
     ],
   },
   resolve: {
