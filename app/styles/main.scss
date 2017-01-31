@@ -47,6 +47,7 @@ h1 {
   &:hover {
     background: $btn-hover-bg-color;
     color: $btn-hover-text-color;
+    cursor: pointer;
   }
 
   &:active {

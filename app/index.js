@@ -5,8 +5,9 @@ import { createStore } from 'redux';
 import rootReducer from './reducers';
 
 import ReactDOM from 'react-dom';
-import App from './components/app';
-import Movies from './components/movies';
+import AppContainer from './containers/AppContainer';
+// import App from './containers/App';
+import MoviesContainer from './containers/MoviesContainer';
 import Login from './components/login';
 import Favorites from './components/favorites';
 
@@ -18,8 +19,8 @@ const store = createStore(rootReducer, devTools);
 
 const router = (
   <Router history={browserHistory} >
-    <Route path='/' component={App}>
-      <IndexRoute component={Movies} />
+    <Route path='/' component={AppContainer}>
+      <IndexRoute component={MoviesContainer} />
       <Route component={Login} path='/login' />
       <Route component={Favorites} path='/favorites' />
     </Route>
