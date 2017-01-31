@@ -18,19 +18,20 @@ export default class App extends Component {
         <Link to='/'>
           <input className='btn'
             type='submit'
-            value='Full List'
+            value='Now Playing'
+          />
+        </Link>
+      );
+    } else if (window.location.pathname === '/') {
+      return (
+        <Link to='/favorites'>
+          <input className='btn'
+            type='submit'
+            value='Favorites'
           />
         </Link>
       );
     }
-    return (
-      <Link to='/favorites'>
-        <input className='btn'
-          type='submit'
-          value='Favorites'
-        />
-      </Link>
-    );
   }
 
   render() {
@@ -38,6 +39,12 @@ export default class App extends Component {
       <div>
         <h1>Movie Watcher</h1>
         {this.toggleBtnPath()}
+        <Link to='/login'>
+          <input className='btn btn-login'
+            type='submit'
+            value='Login'
+          />
+        </Link>
         {this.props.children}
       </div>
     );

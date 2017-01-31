@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 export default class Movies extends Component {
 
   render() {
+    console.log('store:', this.context.store);
     let moviesList = this.props.movies || ['blah'];
     const newMoviesList = moviesList.map(m => (
       <article key={m.id} className='movie-item'>
@@ -14,7 +15,7 @@ export default class Movies extends Component {
 
     return (
       <div>
-        <h2>Movies</h2>
+        <h2>Now Playing</h2>
         <section className='movie-list'>
           {newMoviesList}
         </section>

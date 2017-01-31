@@ -6,7 +6,7 @@
   display: inline-flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 20px auto;
+  margin: 0 auto;
 }
 
 @mixin button-input-style {
@@ -25,7 +25,9 @@ body {
 }
 
 h1 {
+  margin: 20px;
   color: $text;
+  font-size: 3em;
 }
 
 .movie-list {
@@ -65,4 +67,9 @@ h1 {
 .btn-favorite {
   display: block;
   margin: 0 auto;
+}
+
+.btn-login {
+  display: inline-block;
+  background: $btn-login-bg-color;
 }
