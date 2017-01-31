@@ -47,6 +47,7 @@ h1 {
   &:hover {
     background: $btn-hover-bg-color;
     color: $btn-hover-text-color;
+    cursor: pointer;
   }
 
   &:active {
@@ -59,4 +60,9 @@ h1 {
     background: $btn-disabled-bg-color;
     color: $btn-disabled-text-color;
   }
+}
+
+.btn-favorite {
+  display: block;
+  margin: 0 auto;
 }

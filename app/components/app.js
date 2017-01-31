@@ -5,9 +5,11 @@ import { API_KEY } from '../key';
 export default class App extends Component {
 
   componentDidMount() {
+    let addMovies = this.props.addMovies;
     fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}`)
       .then(response => response.json())
-        .then(payload => console.log(payload));
+      .then(payload => addMovies(payload))
+      .catch(error => console.log(error));
   }
 
   toggleBtnPath() {
