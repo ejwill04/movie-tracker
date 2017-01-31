@@ -1,18 +1,62 @@
-@import 'reset';
+@import 'node_modules/normalize-scss/sass/normalize';
 @import url('https://fonts.googleapis.com/css?family=Lato');
 @import 'variables';
 
+@mixin list-flex {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px auto;
+}
 
+@mixin button-input-style {
+  margin: 10px;
+  padding: 10px 20px;
+  border: 0;
+  border-radius: 10px;
+  outline: 0;
+  font-size: 12px;
+}
 
 body {
   background-color: $background;
   font-family: 'Lato', sans-serif;
+  text-align: center;
 }
 
-#main h1 {
+h1 {
   color: $text;
 }
 
-#main {
-  text-align: center;
+.movie-list {
+  @include list-flex;
+}
+
+.movie-item {
+  width: 30%;
+  margin: 20px;
+  padding: 10px;
+  background: $card-bg-color;
+}
+
+.btn {
+  @include button-input-style;
+  background: $btn-bg-color;
+  color: $btn-text-color;
+
+  &:hover {
+    background: $btn-hover-bg-color;
+    color: $btn-hover-text-color;
+  }
+
+  &:active {
+    background: $btn-bg-color;
+    color: $accent1;
+  }
+
+
+  &[disabled] {
+    background: $btn-disabled-bg-color;
+    color: $btn-disabled-text-color;
+  }
 }

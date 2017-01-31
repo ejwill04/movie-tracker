@@ -14,7 +14,7 @@ export default class App extends Component {
     if (window.location.pathname === '/favorites') {
       return (
         <Link to='/'>
-          <input
+          <input className='btn'
             type='submit'
             value='Full List'
           />
@@ -23,7 +23,7 @@ export default class App extends Component {
     }
     return (
       <Link to='/favorites'>
-        <input
+        <input className='btn'
           type='submit'
           value='Favorites'
         />
