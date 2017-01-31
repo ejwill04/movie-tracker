@@ -5,38 +5,31 @@ module.exports = function (config) {
     basePath: '',
     frameworks: ['mocha', 'chai', 'sinon'],
     files: [
-      // 'app/**/*.js',
-      'test/**/*.spec.js'
+      'test/**/*.spec.js',
     ],
     exclude: [],
     preprocessors: {
       'app/**/*.js': ['webpack', 'sourcemap'],
-      'test/**/*.js': ['webpack', 'sourcemap']
+      'test/**/*.js': ['webpack', 'sourcemap'],
     },
     webpack: {
-      devtool: 'inline-source-map',
+      devtool: 'source-map',
       module: webpackConfig.module,
       externals: {
         'cheerio': 'window',
         'jsdom': 'window',
         'react/addons': true,
         'react/lib/ExecutionEnvironment': true,
-        'react/lib/ReactContext': true
+        'react/lib/ReactContext': true,
       },
       resolve: webpackConfig.resolve,
     },
     webpackServer: {
-      stats: 'errors-only'
+      stats: 'errors-only',
     },
     reporters: ['mocha'],
     mochaReporter: {
-      colors: {
-        warning: 'black',
-        error: 'red'
-      },
-      mochaReporter: {
-        showDiff: 'unified'
-      },
+      showDiff: true,
     },
     port: 9876,
     colors: true,
@@ -44,6 +37,6 @@ module.exports = function (config) {
     autoWatch: true,
     browsers: ['Chrome'],
     singleRun: false,
-    concurrency: Infinity
+    concurrency: Infinity,
   });
 };

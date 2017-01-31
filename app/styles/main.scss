@@ -1,8 +1,12 @@
 @import 'reset';
+@import url('https://fonts.googleapis.com/css?family=Lato');
 @import 'variables';
+
+
 
 body {
   background-color: $background;
+  font-family: 'Lato', sans-serif;
 }
 
 #main h1 {

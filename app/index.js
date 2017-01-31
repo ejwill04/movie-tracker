@@ -6,7 +6,7 @@ import rootReducer from './reducers';
 
 import ReactDOM from 'react-dom';
 import App from './components/app';
-import MovieIndex from './components/movieIndex';
+import Movies from './components/movies';
 import Login from './components/login';
 import Favorites from './components/favorites';
 
@@ -19,7 +19,7 @@ const store = createStore(rootReducer, devTools);
 const router = (
   <Router history={browserHistory} >
     <Route path='/' component={App}>
-      <IndexRoute component={MovieIndex} />
+      <IndexRoute component={Movies} />
       <Route component={Login} path='/login' />
       <Route component={Favorites} path='/favorites' />
     </Route>
