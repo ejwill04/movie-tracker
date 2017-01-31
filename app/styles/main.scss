@@ -1,7 +1,11 @@
+@import 'reset';
 @import 'variables';
 
-#main h1 {
+body {
   background-color: $background;
+}
+
+#main h1 {
   color: $text;
 }
 
