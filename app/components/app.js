@@ -13,7 +13,6 @@ export default class App extends Component {
   }
 
   showLoginBtn() {
-    console.log(this.props.user)
     if (!this.props.user && window.location.pathname !== '/login') {
       return (
         <Link to='/login'>
