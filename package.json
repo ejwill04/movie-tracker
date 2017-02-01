@@ -4,7 +4,7 @@
   "description": "MeatMeet",
   "scripts": {
     "build": "webpack --config ./webpack.config.js",
-    "start:dev": "webpack-dev-server --hot --inline --history-api-fallback",
+    "start": "webpack-dev-server --hot --inline --history-api-fallback",
     "test": "NODE_ENV=testing karma start",
     "db": "npm build && node src/app.js"
   },
