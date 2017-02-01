@@ -38,7 +38,11 @@ export default class Login extends React.Component {
         },
         method: 'POST',
         body: JSON.stringify({ email: email, password: password }),
-      }).then(data => console.log(data));
+      }).then(response => this.validateUser(response));
+  }
+
+  validateUser(response) {
+    response.status === 200 ? window.location = '/' : alert('Your password and email do match');
   }
 
   render() {
