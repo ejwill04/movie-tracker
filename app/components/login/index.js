@@ -26,7 +26,7 @@ export default class Login extends React.Component {
         },
         method: 'POST',
         body: JSON.stringify({ name: email, email: email, password: password }),
-      });
+      }).then(response => this.validateUser(response));
   }
 
   userLogin(email, password) {
