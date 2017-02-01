@@ -4,3 +4,10 @@ export const addMovies = (data) => {
     data,
   };
 };
+
+export const addUsers = (data) => {
+  return {
+    type: 'ADD_USERS',
+    data,
+  };
+};

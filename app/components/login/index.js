@@ -4,7 +4,14 @@ export default class Login extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.refs.password.value);
+    this.getUsers();
+  }
+
+  getUsers() {
+    const addUsers = this.props.addUsers;
+    fetch('http://localhost:3000/api/users')
+      .then(response => response.json())
+      .then(payload => addUsers(payload.data));
   }
 
   render() {
@@ -25,11 +32,18 @@ export default class Login extends React.Component {
           placeholder='password'
           ref='password'
         />
-        <input
-          className='btn btn-login'
-          type='submit'
-          value='submit'
-        />
+        <div className='btn-container' >
+          <input
+            className='btn btn-login'
+            type='submit'
+            value='Login'
+          />
+          <input
+            className='btn btn-signup'
+            type='button'
+            value='Sign Up'
+          />
+        </div>
       </form>
     );
   };
