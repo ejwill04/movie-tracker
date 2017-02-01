@@ -6,15 +6,28 @@ export default class Login extends React.Component {
     const email = this.refs.email.value;
     const password = this.refs.password.value;
     e.preventDefault();
-    this.userLogin(email, password);
+    if (email.length > 0 && password.length > 0) {
+      this.userLogin(email, password);
+      this.refs.email.value = '';
+      this.refs.password.value = '';
+    } else {
+      this.refs.email.focus();
+    }
   }
 
-  // getUsers() {
-  //   const addUsers = this.props.addUsers;
-  //   fetch('http://localhost:3000/api/users')
-  //     .then(response => response.json())
-  //     .then(payload => addUsers(payload.data));
-  // }
+  createUser() {
+    const email = this.refs.email.value;
+    const password = this.refs.password.value;
+    fetch('http://localhost:3000/api/users/new',
+      {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        method: 'POST',
+        body: JSON.stringify({ name: email, email: email, password: password }),
+      });
+  }
 
   userLogin(email, password) {
     fetch('http://localhost:3000/api/users',
@@ -56,6 +69,7 @@ export default class Login extends React.Component {
             className='btn btn-signup'
             type='button'
             value='Sign Up'
+            onClick={this.createUser.bind(this)}
           />
         </div>
       </form>
