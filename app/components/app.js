@@ -12,6 +12,19 @@ export default class App extends Component {
       .catch(error => console.log(error));
   }
 
+  showLoginBtn() {
+    if (window.location.pathname !== '/login') {
+      return (
+        <Link to='/login'>
+          <input className='btn btn-login'
+            type='submit'
+            value='Login'
+          />
+        </Link>
+      );
+    }
+  }
+
   toggleBtnPath() {
     if (window.location.pathname === '/favorites') {
       return (
@@ -39,12 +52,7 @@ export default class App extends Component {
       <div>
         <h1>Movie Watcher</h1>
         {this.toggleBtnPath()}
-        <Link to='/login'>
-          <input className='btn btn-login'
-            type='submit'
-            value='Login'
-          />
-        </Link>
+        {this.showLoginBtn()}
         {this.props.children}
       </div>
     );

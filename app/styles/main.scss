@@ -30,6 +30,11 @@ h1 {
   font-size: 3em;
 }
 
+.input-text {
+  @include button-input-style;
+  display: block;
+}
+
 .movie-list {
   @include list-flex;
 }
@@ -72,4 +77,11 @@ h1 {
 .btn-login {
   display: inline-block;
   background: $btn-login-bg-color;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 250px;
+  margin: 0 auto;
 }

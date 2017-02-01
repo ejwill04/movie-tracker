@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 export default class Movies extends Component {
 
   render() {
-    console.log('store:', this.context.store);
     let moviesList = this.props.movies || ['blah'];
     const newMoviesList = moviesList.map(m => (
       <article key={m.id} className='movie-item'>
