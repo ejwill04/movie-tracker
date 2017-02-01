@@ -1,7 +1,7 @@
 const user = (state = [], action) => {
   switch (action.type) {
-    case 'ADD_USERS':
-      return action.data;
+    case 'SET_ACTIVE_USER':
+      return action.user;
     default:
       return state;
   }
