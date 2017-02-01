@@ -5,16 +5,9 @@ export const addMovies = (data) => {
   };
 };
 
-export const setActiveUser = (user) => {
+export const setActiveUser = (data) => {
   return {
     type: 'SET_ACTIVE_USER',
-    user,
-  }
-}
-
-export const toggleFavorite = (id) => {
-  return {
-    type: 'TOGGLE_FAVORITE',
-    id,
-  }
-}
+    data,
+  };
+};

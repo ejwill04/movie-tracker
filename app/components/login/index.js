@@ -1,4 +1,5 @@
 import React from 'react';
+import { browserHistory } from 'react-router';
 
 export default class Login extends React.Component {
 
@@ -26,7 +27,11 @@ export default class Login extends React.Component {
         },
         method: 'POST',
         body: JSON.stringify({ name: email, email: email, password: password }),
-      });
+      }).then(response => response.json())
+      .then(payload => this.validateCreateUser(payload.status, email, payload.id));
+        // let id = response.json().then(payload => payload.id);
+        // console.log(id);
+        // this.validateCreateUser(response, email, id);
   }
 
   userLogin(email, password) {
@@ -38,7 +43,31 @@ export default class Login extends React.Component {
         },
         method: 'POST',
         body: JSON.stringify({ email: email, password: password }),
-      }).then(data => console.log(data));
+      }).then(response => this.validateUser(response));
+  }
+
+  validateCreateUser(status, email, id) {
+    if (status === 'success') {
+      this.addNewUserToStore(email, id);
+      browserHistory.push('/');
+    } else {
+      alert('Email has already been used');
+    }
+  }
+
+  addNewUserToStore(email, id) {
+    const userData = { name: email, id: id, email: email };
+    this.props.setActiveUser(userData);
+  }
+
+  validateUser(response) {
+    if (response.status === 200) {
+      response.json().then(payload =>
+         this.props.setActiveUser(payload.data));
+      browserHistory.push('/');
+    } else {
+      alert('Password and email do not match');
+    }
   }
 
   render() {
@@ -72,6 +101,7 @@ export default class Login extends React.Component {
             onClick={this.createUser.bind(this)}
           />
         </div>
+        <p className='status'></p>
       </form>
     );
   };
