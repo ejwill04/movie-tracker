@@ -27,7 +27,7 @@ export default class Login extends React.Component {
         },
         method: 'POST',
         body: JSON.stringify({ name: email, email: email, password: password }),
-      }).then(response => this.validateUser(response));
+      }).then(response => this.validateCreateUser(response, email, password));
   }
 
   userLogin(email, password) {
@@ -42,9 +42,24 @@ export default class Login extends React.Component {
       }).then(response => this.validateUser(response));
   }
 
+  validateCreateUser(response, email, password) {
+    if (response.status === 200) {
+      this.addNewUserToStore(email, password);
+      browserHistory.push('/');
+    } else {
+      alert('Not a valid email and password');
+    }
+  }
+
+  addNewUserToStore(email, password) {
+    const userData = { name: email, password: password, email: email };
+    this.props.setActiveUser(userData);
+  }
+
   validateUser(response) {
     if (response.status === 200) {
-      response.json().then(payload => this.props.setActiveUser(payload.data));
+      response.json().then(payload =>
+         this.props.setActiveUser(payload.data));
       browserHistory.push('/');
     } else {
       alert('Your password and email do match');
