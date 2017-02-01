@@ -7,7 +7,7 @@ export default class Login extends React.Component {
     const email = this.refs.email.value;
     const password = this.refs.password.value;
     e.preventDefault();
-    if (email.length > 0 && password.length > 0) {
+    if (email.length > 0 && password.length > 0 && this.validateEmail(email)) {
       this.userLogin(email, password);
       this.refs.email.value = '';
       this.refs.password.value = '';
@@ -19,19 +19,18 @@ export default class Login extends React.Component {
   createUser() {
     const email = this.refs.email.value;
     const password = this.refs.password.value;
-    fetch('http://localhost:3000/api/users/new',
-      {
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-        },
-        method: 'POST',
-        body: JSON.stringify({ name: email, email: email, password: password }),
-      }).then(response => response.json())
-      .then(payload => this.validateCreateUser(payload.status, email, payload.id));
-        // let id = response.json().then(payload => payload.id);
-        // console.log(id);
-        // this.validateCreateUser(response, email, id);
+    if (this.validateEmail(email)) {
+      fetch('http://localhost:3000/api/users/new',
+        {
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+          },
+          method: 'POST',
+          body: JSON.stringify({ name: email, email: email, password: password }),
+        }).then(response => response.json())
+        .then(payload => this.validateCreateUser(payload.status, email, payload.id));
+    }
   }
 
   userLogin(email, password) {
@@ -51,7 +50,7 @@ export default class Login extends React.Component {
       this.addNewUserToStore(email, id);
       browserHistory.push('/');
     } else {
-      alert('Email has already been used');
+      this.props.setLoginErrorMessage('*Email has already been used*');
     }
   }
 
@@ -66,7 +65,17 @@ export default class Login extends React.Component {
          this.props.setActiveUser(payload.data));
       browserHistory.push('/');
     } else {
-      alert('Password and email do not match');
+      this.props.setLoginErrorMessage('*Your email and password do not match*');
+    }
+  }
+
+  validateEmail(email) {
+    let emailPattern = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
+    if(!emailPattern.test(email)) {
+      this.props.setLoginErrorMessage('*Please enter a valid email address');
+      return false;
+    } else {
+      return true;
     }
   }
 
@@ -101,7 +110,7 @@ export default class Login extends React.Component {
             onClick={this.createUser.bind(this)}
           />
         </div>
-        <p className='status'></p>
+        <p className='status'>{this.props.errorMessage}</p>
       </form>
     );
   };

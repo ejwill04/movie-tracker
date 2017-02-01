@@ -2,8 +2,9 @@ import { connect } from 'react-redux';
 import { addMovies } from '../actions';
 import App from '../components/app';
 
-// const mapStateToProps = (state) => {
-// };
+const mapStateToProps = (state) => {
+  return { user: state.user };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -13,4 +14,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -13,7 +13,7 @@ export default class App extends Component {
   }
 
   showLoginBtn() {
-    if (window.location.pathname !== '/login') {
+    if (!this.props.user && window.location.pathname !== '/login') {
       return (
         <Link to='/login'>
           <input className='btn btn-login'
@@ -23,6 +23,7 @@ export default class App extends Component {
         </Link>
       );
     }
+    else return;
   }
 
   toggleBtnPath() {
