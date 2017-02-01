@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
 const addToFavs = (e) => {
-  console.log(e);
+  // console.log(e);
 };
 
 const showDescription = (overview) => {
-  console.log(overview);
+  // console.log(overview);
 };
 
 const MovieCard = (props) => {

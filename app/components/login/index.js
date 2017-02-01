@@ -27,7 +27,11 @@ export default class Login extends React.Component {
         },
         method: 'POST',
         body: JSON.stringify({ name: email, email: email, password: password }),
-      }).then(response => this.validateCreateUser(response, email, password));
+      }).then(response => response.json())
+      .then(payload => this.validateCreateUser(payload.status, email, payload.id));
+        // let id = response.json().then(payload => payload.id);
+        // console.log(id);
+        // this.validateCreateUser(response, email, id);
   }
 
   userLogin(email, password) {
@@ -42,19 +46,17 @@ export default class Login extends React.Component {
       }).then(response => this.validateUser(response));
   }
 
-  validateCreateUser(response, email, password) {
-    if (response.status === 200) {
-      this.addNewUserToStore(email, password);
+  validateCreateUser(status, email, id) {
+    if (status === 'success') {
+      this.addNewUserToStore(email, id);
       browserHistory.push('/');
-    } else if (response.status === 500) {
-      alert('Email has already been used');
     } else {
-      alert('Not a valid email and password');
+      alert('Email has already been used');
     }
   }
 
-  addNewUserToStore(email, password) {
-    const userData = { name: email, password: password, email: email };
+  addNewUserToStore(email, id) {
+    const userData = { name: email, id: id, email: email };
     this.props.setActiveUser(userData);
   }
 
@@ -99,6 +101,7 @@ export default class Login extends React.Component {
             onClick={this.createUser.bind(this)}
           />
         </div>
+        <p className='status'></p>
       </form>
     );
   };
