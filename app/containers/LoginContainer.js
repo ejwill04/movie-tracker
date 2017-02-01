@@ -3,7 +3,7 @@ import Login from '../components/login';
 import { setActiveUser, setLoginErrorMessage } from '../actions';
 
 const mapStateToProps = (state) => {
-  return { users: state.users, errorMessage: state.error };
+  return { user: state.user, errorMessage: state.error };
 };
 
 const mapDispatchToProps = (dispatch) => {
