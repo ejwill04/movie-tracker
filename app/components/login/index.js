@@ -46,6 +46,8 @@ export default class Login extends React.Component {
     if (response.status === 200) {
       this.addNewUserToStore(email, password);
       browserHistory.push('/');
+    } else if (response.status === 500) {
+      alert('Email has already been used');
     } else {
       alert('Not a valid email and password');
     }
@@ -62,7 +64,7 @@ export default class Login extends React.Component {
          this.props.setActiveUser(payload.data));
       browserHistory.push('/');
     } else {
-      alert('Your password and email do match');
+      alert('Password and email do not match');
     }
   }
 
