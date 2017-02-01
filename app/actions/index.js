@@ -5,9 +5,9 @@ export const addMovies = (data) => {
   };
 };
 
-export const addUsers = (data) => {
+export const setActiveUser = (data) => {
   return {
-    type: 'ADD_USERS',
+    type: 'SET_ACTIVE_USER',
     data,
   };
 };

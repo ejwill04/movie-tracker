@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Login from '../components/login';
-import { addUsers } from '../actions';
+import { setActiveUser } from '../actions';
 
 const mapStateToProps = (state) => {
   return { users: state.users };
@@ -8,8 +8,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addUsers: (data) => {
-      dispatch(addUsers(data));
+    setActiveUser: (data) => {
+      dispatch(setActiveUser(data));
     },
   };
 };

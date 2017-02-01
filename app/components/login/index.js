@@ -1,4 +1,5 @@
 import React from 'react';
+import { browserHistory } from 'react-router';
 
 export default class Login extends React.Component {
 
@@ -42,7 +43,12 @@ export default class Login extends React.Component {
   }
 
   validateUser(response) {
-    response.status === 200 ? window.location = '/' : alert('Your password and email do match');
+    if (response.status === 200) {
+      response.json().then(payload => this.props.setActiveUser(payload.data));
+      browserHistory.push('/');
+    } else {
+      alert('Your password and email do match');
+    }
   }
 
   render() {
