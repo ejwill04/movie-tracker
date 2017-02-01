@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import Movies from '../components/movies';
+import { toggleFavorite } from '../actions';
 
 const mapStateToProps = (state) => {
   return { movies: state.movies.results };
@@ -7,9 +8,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    // addMovies: (data) => {
-    //   dispatch(addMovies(data));
-    // },
+    toggleFavorite: (data) => {
+      dispatch(toggleFavorite(data));
+    },
   };
 };
 

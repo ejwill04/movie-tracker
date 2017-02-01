@@ -1,7 +1,7 @@
 const favorites = (state = [], action) => {
   switch (action.type) {
-    case 'ADD_FAVORITES':
-      return action.data;
+    case 'TOGGLE_FAVORITE':
+      return [action.data, ...state];
     default:
       return state;
   }
