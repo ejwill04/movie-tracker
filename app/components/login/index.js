@@ -1,9 +1,36 @@
 import React from 'react';
 
-const Login = () => {
-  return (
-    <div>a login thing</div>
-  );
-};
+export default class Login extends React.Component {
 
-export default Login;
+  handleSubmit(e) {
+    e.preventDefault();
+    console.log(this.refs.password.value);
+  }
+
+  render() {
+    return (
+      <form
+        className='login-form'
+        onSubmit={this.handleSubmit.bind(this)}
+      >
+        <input
+          className='input-text'
+          type='text'
+          placeholder='email'
+          ref='email'
+        />
+        <input
+          className='input-text'
+          type='password'
+          placeholder='password'
+          ref='password'
+        />
+        <input
+          className='btn btn-login'
+          type='submit'
+          value='submit'
+        />
+      </form>
+    );
+  };
+};

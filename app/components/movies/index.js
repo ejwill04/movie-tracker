@@ -11,7 +11,7 @@ export default class Movies extends Component {
 
     return (
       <div>
-        <h2>Movies</h2>
+        <h2>Now Playing</h2>
         <section className='movie-list'>
           {newMoviesList}
         </section>

@@ -12,25 +12,39 @@ export default class App extends Component {
       .catch(error => console.log(error));
   }
 
+  showLoginBtn() {
+    if (window.location.pathname !== '/login') {
+      return (
+        <Link to='/login'>
+          <input className='btn btn-login'
+            type='submit'
+            value='Login'
+          />
+        </Link>
+      );
+    }
+  }
+
   toggleBtnPath() {
     if (window.location.pathname === '/favorites') {
       return (
         <Link to='/'>
           <input className='btn'
             type='submit'
-            value='Full List'
+            value='Now Playing'
+          />
+        </Link>
+      );
+    } else if (window.location.pathname === '/') {
+      return (
+        <Link to='/favorites'>
+          <input className='btn'
+            type='submit'
+            value='Favorites'
           />
         </Link>
       );
     }
-    return (
-      <Link to='/favorites'>
-        <input className='btn'
-          type='submit'
-          value='Favorites'
-        />
-      </Link>
-    );
   }
 
   render() {
@@ -38,6 +52,7 @@ export default class App extends Component {
       <div>
         <h1>Movie Watcher</h1>
         {this.toggleBtnPath()}
+        {this.showLoginBtn()}
         {this.props.children}
       </div>
     );

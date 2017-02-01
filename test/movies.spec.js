@@ -12,8 +12,8 @@ describe('<Movies />', () => {
       wrapper = shallow(<Movies />);
     });
 
-    it('should show text "Movies"', () => {
-      expect(wrapper.find('div')).to.contain.text('Movies');
+    it('should show text "Now Playing"', () => {
+      expect(wrapper.find('div')).to.contain.text('Now Playing');
     });
   });
 });
