@@ -11,3 +11,10 @@ export const setActiveUser = (data) => {
     data,
   };
 };
+
+export const toggleFavorite = (id) => {
+  return {
+    type: 'TOGGLE_FAVORITE',
+    id,
+  };
+};

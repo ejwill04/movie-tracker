@@ -1,5 +1,5 @@
 import { expect } from './setup';
-import * as actions from '../app/actions'
+import * as actions from '../app/actions';
 
 describe('action creators', () => {
   describe('ADD_MOVIES', () => {
@@ -10,7 +10,7 @@ describe('action creators', () => {
       data = { value: ['hello', 'world'] };
       action = {
         type: 'ADD_MOVIES',
-        data: { value: ['hello', 'world'] },
+        data,
       };
     });
 
@@ -21,18 +21,18 @@ describe('action creators', () => {
 
   describe('should create an action to add a active user', () => {
     let action;
-    let user;
+    let data;
 
     beforeEach(() => {
-      user = { userName: 'dude', email: 'dude@dude.com' };
+      data = { userName: 'dude', email: 'dude@dude.com' };
       action = {
         type: 'SET_ACTIVE_USER',
-        user,
+        data,
       };
     });
 
     it('should create an action to set the active (signed-in) user', () => {
-      expect(actions.setActiveUser(user)).to.deep.equal(action);
+      expect(actions.setActiveUser(data)).to.deep.equal(action);
     });
   });
 
