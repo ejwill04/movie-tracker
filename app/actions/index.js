@@ -11,3 +11,10 @@ export const setActiveUser = (data) => {
     data,
   };
 };
+
+export const setLoginErrorMessage = (data) => {
+  return {
+    type: 'SET_LOGIN_ERROR_MESSAGE',
+    data,
+  };
+};

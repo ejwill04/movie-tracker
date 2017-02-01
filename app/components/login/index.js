@@ -29,9 +29,6 @@ export default class Login extends React.Component {
         body: JSON.stringify({ name: email, email: email, password: password }),
       }).then(response => response.json())
       .then(payload => this.validateCreateUser(payload.status, email, payload.id));
-        // let id = response.json().then(payload => payload.id);
-        // console.log(id);
-        // this.validateCreateUser(response, email, id);
   }
 
   userLogin(email, password) {
@@ -51,7 +48,7 @@ export default class Login extends React.Component {
       this.addNewUserToStore(email, id);
       browserHistory.push('/');
     } else {
-      alert('Email has already been used');
+      this.props.setLoginErrorMessage('*Email has already been used*');
     }
   }
 
@@ -66,7 +63,7 @@ export default class Login extends React.Component {
          this.props.setActiveUser(payload.data));
       browserHistory.push('/');
     } else {
-      alert('Password and email do not match');
+      this.props.setLoginErrorMessage('*Your email and password do not match*');
     }
   }
 
@@ -101,7 +98,7 @@ export default class Login extends React.Component {
             onClick={this.createUser.bind(this)}
           />
         </div>
-        <p className='status'></p>
+        <p className='status'>{this.props.errorMessage}</p>
       </form>
     );
   };
