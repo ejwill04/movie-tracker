@@ -3,15 +3,29 @@ import React from 'react';
 export default class Login extends React.Component {
 
   handleSubmit(e) {
+    const email = this.refs.email.value;
+    const password = this.refs.password.value;
     e.preventDefault();
-    this.getUsers();
+    this.userLogin(email, password);
   }
 
-  getUsers() {
-    const addUsers = this.props.addUsers;
-    fetch('http://localhost:3000/api/users')
-      .then(response => response.json())
-      .then(payload => addUsers(payload.data));
+  // getUsers() {
+  //   const addUsers = this.props.addUsers;
+  //   fetch('http://localhost:3000/api/users')
+  //     .then(response => response.json())
+  //     .then(payload => addUsers(payload.data));
+  // }
+
+  userLogin(email, password) {
+    fetch('http://localhost:3000/api/users',
+      {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        method: 'POST',
+        body: JSON.stringify({ email: email, password: password }),
+      }).then(data => console.log(data));
   }
 
   render() {
