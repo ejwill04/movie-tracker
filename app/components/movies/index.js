@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
+import MovieCard from '../moviecard';
 
 export default class Movies extends Component {
 
   render() {
-    let moviesList = this.props.movies || ['blah'];
-    const newMoviesList = moviesList.map(m => (
-      <article key={m.id} className='movie-item'>
-        <p>{m.title}</p>
-        <img src={`https://image.tmdb.org/t/p/w500/${m.poster_path}`} alt={`movie-poster-${m.title}`} height='300' />
-        <input className='btn btn-favorite' type='button' value='favorite' />
-      </article>
-    ));
+      let moviesList = this.props.movies || [];
+      const newMoviesList = moviesList.map(m => (
+        <MovieCard data={m} key={m.id} />
+      ));
 
     return (
       <div>
