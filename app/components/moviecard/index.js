@@ -4,6 +4,64 @@ const showDescription = (overview) => {
   // console.log(overview);
 };
 
+const handleFavoriteButtonClick = (props) => {
+  const { user } = props;
+
+  const { id: movie_id, title, poster_path, release_date, vote_average, overview, favoriteId, favorited } = props.data;
+  if (favorited) {
+    console.log('user.id: ', user.id)
+    console.log('user.id: ', user.id)
+    fetch(`http://localhost:3000/api/users/${user.id}/favorites/${movie_id}`,
+      {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        method: 'DELETE',
+      })
+      .then(response => response.json())
+      .then(payload => {
+        if (payload.status === 'success') {
+          console.log(payload);
+          props.toggleFavorite(props.data, favoriteId);
+        } else {
+          console.log(payload);
+        }
+      });
+  } else {
+
+    console.log('chacha');
+
+    fetch('http://localhost:3000/api/users/favorites/new',
+    {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+      body: JSON.stringify({
+        user_id: user.id,
+        movie_id,
+        title,
+        poster_path,
+        release_date,
+        vote_average,
+        overview,
+      }),
+    })
+    .then(response => response.json())
+    .then(payload => {
+      if (payload.status === 'success') {
+        console.log(payload.id);
+        props.toggleFavorite(props.data, payload.id);
+      } else {
+        console.log(payload);
+      }
+    });
+  }
+
+};
+
 const MovieCard = (props) => {
   const { title, poster_path, overview, favorited } = props.data;
   // console.log()
@@ -11,7 +69,7 @@ const MovieCard = (props) => {
     <article
       onMouseOver={() => showDescription(overview)}
       className='movie-item'>
-      <p className="movie-title">{title}</p>
+      <p className='movie-title'>{title}</p>
 
       <img
         src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
@@ -24,7 +82,7 @@ const MovieCard = (props) => {
             className={`${favorited ? 'fav-status-true' : ''} btn btn-favorite`}
             type='button'
             value='favorite'
-            onClick={() => props.toggleFavorite(props.data)}
+            onClick={() => handleFavoriteButtonClick(props)}
            />
           : null
       }

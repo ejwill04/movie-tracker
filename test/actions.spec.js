@@ -54,19 +54,21 @@ describe('actions', () => {
   });
 
   describe('should create an action TOGGLE_FAVORITE to set/unset a movie as a favorite', () => {
-    let action;
-    let data;
+    const action;
+    const data;
+    const favoriteId = 1;
 
     beforeEach(() => {
       data = { title: 'movieTitle' };
       action = {
         type: 'TOGGLE_FAVORITE',
+        favoriteId,
         data,
       };
     });
 
     it('should create an action to set the active (signed-in) user', () => {
-      expect(actions.toggleFavorite(data)).to.deep.equal(action);
+      expect(actions.toggleFavorite(data, favoriteId)).to.deep.equal(action);
     });
   });
 });

@@ -6,9 +6,9 @@ const movies = (state = [], action) => {
       const newState = state.results.map((movie, index) => {
         if (movie.id === action.data.id) {
           if (movie.favorited) {
-            return Object.assign({}, action.data, { favorited: false });
+            return Object.assign({}, action.data, { favorited: false }, { favoriteId: -1 });
           } else {
-            return Object.assign({}, action.data, { favorited: true });
+            return Object.assign({}, action.data, { favorited: true }, { favoriteId: action.favoriteId });
           }
         } else {
           return movie;

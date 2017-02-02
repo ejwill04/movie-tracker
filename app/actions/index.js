@@ -19,9 +19,10 @@ export const setLoginErrorMessage = (data) => {
   };
 };
 
-export const toggleFavorite = (data) => {
+export const toggleFavorite = (data, favoriteId) => {
   return {
     type: 'TOGGLE_FAVORITE',
     data,
+    favoriteId,
   };
 };
