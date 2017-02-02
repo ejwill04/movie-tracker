@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
+import MovieCard from '../moviecard';
 
-const Favorites = () => {
-  return (
-    <h2>Favorites</h2>
-  );
-};
+export default class Favorites extends Component {
 
-export default Favorites;
+  render() {
+      let moviesList = this.props.favorites || [];
+      const newMoviesList = moviesList.map(m => (
+        <MovieCard {...this.props} data={m} key={m.id} />
+      ));
+
+    return (
+      <div>
+        <h2>Favorites</h2>
+        <section className='movie-list'>
+          {newMoviesList}
+        </section>
+      </div>
+    );
+  }
+}
