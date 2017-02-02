@@ -2,31 +2,31 @@ import React, { Component } from 'react';
 import MovieCard from '../moviecard';
 import { Link } from 'react-router';
 
-export default class Movies extends Component {
+export default class PopularMovies extends Component {
 
   render() {
-    const moviesList = this.props.movies || [];
-    const newMoviesList = moviesList.map(m => (
+    const moviesList = this.props.popularMovies || [];
+    const popularMoviesList = moviesList.map(m => (
       <MovieCard {...this.props} data={m} key={m.id} />
     ));
 
     return (
       <div>
-        <Link to='/popular'>
+        <Link to='/'>
           <input
-            value='Show Popular'
+            value='Show Upcoming'
             className='btn'
           />
         </Link>
-        <h2>Upcoming</h2>
+        <h2>Popular</h2>
         <section className='movie-list'>
-          {newMoviesList}
+          {popularMoviesList}
         </section>
       </div>
     );
   }
 }
 
-Movies.propTypes = {
+PopularMovies.propTypes = {
   movies: React.PropTypes.array,
 };

@@ -26,3 +26,10 @@ export const toggleFavorite = (data, favoriteId) => {
     favoriteId,
   };
 };
+
+export const addPopularMovies = (data) => {
+  return {
+    type: 'ADD_POPULAR_MOVIES',
+    data,
+  };
+};

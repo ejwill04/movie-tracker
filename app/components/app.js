@@ -5,11 +5,15 @@ import { API_KEY } from '../key';
 export default class App extends Component {
 
   componentDidMount() {
-    let addMovies = this.props.addMovies;
-    fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}`)
-      .then(response => response.json())
-      .then(payload => addMovies(payload))
-      .catch(error => console.log(error));
+    this.fetchMovies('now_playing', this.props.addMovies);
+    this.fetchMovies('popular', this.props.addPopularMovies);
+  }
+
+  fetchMovies(query, action) {
+    fetch(`https://api.themoviedb.org/3/movie/${query}?api_key=${API_KEY}`)
+    .then(response => response.json())
+    .then(payload => action(payload))
+    .catch(error => console.log(error));
   }
 
   showLoginBtn() {

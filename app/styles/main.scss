@@ -52,6 +52,7 @@ h1 {
   @include button-input-style;
   background: $btn-bg-color;
   color: $btn-text-color;
+  text-align: center;
 
   &:hover {
     background: $btn-hover-bg-color;
