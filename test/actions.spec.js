@@ -38,18 +38,18 @@ describe('action creators', () => {
 
   describe('should create an action to toggle a favorite', () => {
     let action;
-    let id;
+    let data;
 
     beforeEach(() => {
-      id = 1;
+      data = { title: 'movieTitle' };
       action = {
         type: 'TOGGLE_FAVORITE',
-        id,
+        data,
       };
     });
 
     it('should create an action to set the active (signed-in) user', () => {
-      expect(actions.toggleFavorite(id)).to.deep.equal(action);
+      expect(actions.toggleFavorite(data)).to.deep.equal(action);
     });
   });
 });

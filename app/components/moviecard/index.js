@@ -5,7 +5,7 @@ const showDescription = (overview) => {
 };
 
 const MovieCard = (props) => {
-  const { id, title, poster_path, overview } = props.data;
+  const { id, title, poster_path, overview, favorited } = props.data;
   return (
     <article
       onMouseOver={() => showDescription(overview)}
@@ -13,7 +13,7 @@ const MovieCard = (props) => {
       <p>{title}</p>
       <img src={`https://image.tmdb.org/t/p/w500/${poster_path}`} alt={`movie-poster-${title}`} height='300' />
       <input
-        className='btn btn-favorite'
+        className={`${favorited ? 'fav-status-true' : ''} btn btn-favorite`}
         type='button'
         value='favorite'
         onClick={() => props.toggleFavorite(props.data)}
