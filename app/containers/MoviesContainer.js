@@ -3,7 +3,7 @@ import Movies from '../components/movies';
 import { toggleFavorite } from '../actions';
 
 const mapStateToProps = (state) => {
-  return { movies: state.movies.results };
+  return { movies: state.movies.results, user: state.user };
 };
 
 const mapDispatchToProps = (dispatch) => {

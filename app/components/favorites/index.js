@@ -4,16 +4,16 @@ import MovieCard from '../moviecard';
 export default class Favorites extends Component {
 
   render() {
-      let moviesList = this.props.favorites || [];
-      const newMoviesList = moviesList.map(m => (
-        <MovieCard {...this.props} data={m} key={m.id} />
-      ));
+      let favoritesList = this.props.favorites || [];
+      const newFavoritesList = favoritesList.map(m => {
+        return m.favorited ? (<MovieCard {...this.props} data={m} key={m.id} />) : null
+      });
 
     return (
       <div>
         <h2>Favorites</h2>
         <section className='movie-list'>
-          {newMoviesList}
+          {newFavoritesList}
         </section>
       </div>
     );
