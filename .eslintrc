@@ -12,7 +12,8 @@
   "plugins": [
     "babel",
     "react",
-    "promise"
+    "promise",
+    "json"
   ],
   "rules": {
       "comma-dangle": ["error", "always-multiline"],
