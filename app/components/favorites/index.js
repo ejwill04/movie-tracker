@@ -4,7 +4,7 @@ import MovieCard from '../moviecard';
 export default class Favorites extends Component {
 
   render() {
-      let favoritesList = this.props.favorites || [];
+      let favoritesList = (this.props.movies).concat(this.props.popularMovies) || [];
       const newFavoritesList = favoritesList.map(m => {
         return m.favorited ? (<MovieCard {...this.props} data={m} key={m.id} />) : null
       });
