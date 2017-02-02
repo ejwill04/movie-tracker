@@ -1,8 +1,8 @@
 import { expect } from './setup';
 import * as actions from '../app/actions';
 
-describe('action creators', () => {
-  describe('ADD_MOVIES', () => {
+describe('actions', () => {
+  describe('should create an action ADD_MOVIES to store movie API data', () => {
     let action;
     let data;
 
@@ -19,7 +19,24 @@ describe('action creators', () => {
     });
   });
 
-  describe('should create an action to add a active user', () => {
+  describe('should create an action SET_LOGIN_ERROR_MESSAGE to store errorMessage data', () => {
+    let action;
+    let data;
+
+    beforeEach(() => {
+      data = 'error message';
+      action = {
+        type: 'SET_LOGIN_ERROR_MESSAGE',
+        data,
+      };
+    });
+
+    it('should create an action to store error messages', () => {
+      expect(actions.setLoginErrorMessage(data)).to.deep.equal(action);
+    });
+  });
+
+  describe('should create an action SET_ACTIVE_USER to add an active user', () => {
     let action;
     let data;
 
@@ -31,12 +48,12 @@ describe('action creators', () => {
       };
     });
 
-    it('should create an action to set the active (signed-in) user', () => {
+    it('should create an action TOGGLE_FAVORITE to set the active (signed-in) user', () => {
       expect(actions.setActiveUser(data)).to.deep.equal(action);
     });
   });
 
-  describe('should create an action to toggle a favorite', () => {
+  describe('should create an action TOGGLE_FAVORITE to set/unset a movie as a favorite', () => {
     let action;
     let data;
 
