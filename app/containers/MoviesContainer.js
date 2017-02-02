@@ -8,8 +8,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    toggleFavorite: (data) => {
-      dispatch(toggleFavorite(data));
+    toggleFavorite: (data, favoriteId) => {
+      dispatch(toggleFavorite(data, favoriteId));
     },
   };
 };

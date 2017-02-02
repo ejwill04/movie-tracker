@@ -5,16 +5,34 @@ const showDescription = (overview) => {
 };
 
 const handleFavoriteButtonClick = (props) => {
-  console.log(props.data.favorited)
-  if (props.data.favorited) {
-    return;
-  }
-
-  console.log(props.user);
   const { user } = props;
 
-  const { id: movie_id, title, poster_path, release_date, vote_average, overview } = props.data;
-  fetch('http://localhost:3000/api/users/favorites/new',
+  const { id: movie_id, title, poster_path, release_date, vote_average, overview, favoriteId, favorited } = props.data;
+  if (favorited) {
+    console.log('user.id: ', user.id)
+    console.log('user.id: ', user.id)
+    fetch(`http://localhost:3000/api/users/${user.id}/favorites/${movie_id}`,
+      {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        method: 'DELETE',
+      })
+      .then(response => response.json())
+      .then(payload => {
+        if (payload.status === 'success') {
+          console.log(payload);
+          props.toggleFavorite(props.data, favoriteId);
+        } else {
+          console.log(payload);
+        }
+      });
+  } else {
+
+    console.log('chacha');
+
+    fetch('http://localhost:3000/api/users/favorites/new',
     {
       headers: {
         'Accept': 'application/json',
@@ -32,9 +50,16 @@ const handleFavoriteButtonClick = (props) => {
       }),
     })
     .then(response => response.json())
-    .then(payload => console.log(payload));
+    .then(payload => {
+      if (payload.status === 'success') {
+        console.log(payload.id);
+        props.toggleFavorite(props.data, payload.id);
+      } else {
+        console.log(payload);
+      }
+    });
+  }
 
-  props.toggleFavorite(props.data);
 };
 
 const MovieCard = (props) => {
