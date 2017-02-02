@@ -6,7 +6,7 @@ export default class Movies extends Component {
   render() {
       let moviesList = this.props.movies || [];
       const newMoviesList = moviesList.map(m => (
-        <MovieCard data={m} key={m.id} />
+        <MovieCard {...this.props} data={m} key={m.id} />
       ));
 
     return (

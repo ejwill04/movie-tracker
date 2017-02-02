@@ -8,7 +8,7 @@ import ReactDOM from 'react-dom';
 import AppContainer from './containers/AppContainer';
 import MoviesContainer from './containers/MoviesContainer';
 import LoginContainer from './containers/LoginContainer';
-import Favorites from './components/favorites';
+import FavoritesContainer from './containers/FavoritesContainer';
 
 require('./styles/main');
 
@@ -21,7 +21,7 @@ const router = (
     <Route path='/' component={AppContainer}>
       <IndexRoute component={MoviesContainer} />
       <Route component={LoginContainer} path='/login' />
-      <Route component={Favorites} path='/favorites' />
+      <Route component={FavoritesContainer} path='/favorites' />
     </Route>
   </Router>
 );

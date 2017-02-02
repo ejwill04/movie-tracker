@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
 
-const addToFavs = (e) => {
-  // console.log(e);
-};
-
 const showDescription = (overview) => {
   // console.log(overview);
 };
@@ -20,10 +16,18 @@ const MovieCard = (props) => {
         className='btn btn-favorite'
         type='button'
         value='favorite'
-        onClick={(e) => addToFavs(e)}
+        onClick={() => props.toggleFavorite(props.data)}
       />
     </article>
   );
 };
 
 export default MovieCard;
+
+MovieCard.propTypes = {
+  id: React.PropTypes.number,
+  title: React.PropTypes.string,
+  poster_path: React.PropTypes.string,
+  overview: React.PropTypes.string,
+  toggleFavorite: React.PropTypes.func,
+};

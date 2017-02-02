@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
-import Movies from '../components/movies';
+import Favorites from '../components/favorites';
 import { toggleFavorite } from '../actions';
 
 const mapStateToProps = (state) => {
-  return { movies: state.movies.results };
+  return { favorites: state.favorites };
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -14,4 +14,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Movies);
+export default connect(mapStateToProps, mapDispatchToProps)(Favorites);
