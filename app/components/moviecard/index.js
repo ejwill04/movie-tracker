@@ -11,7 +11,7 @@ const MovieCard = (props) => {
     <article
       onMouseOver={() => showDescription(overview)}
       className='movie-item'>
-      <p>{title}</p>
+      <p className="movie-title">{title}</p>
 
       <img
         src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
