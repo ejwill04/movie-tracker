@@ -4,16 +4,16 @@ import { expect } from './setup';
 
 import App from '../app/components/app';
 
-describe('<Home />', () => {
-  describe('when visiting the home page', () => {
+describe('<Home />', function () {
+  describe('when visiting the home page', function () {
     let wrapper;
 
     beforeEach(() => {
       wrapper = shallow(<App />);
     });
 
-    it('should show text "Movie Watcher"', () => {
-      expect(wrapper.find('h1')).to.have.text('Movie Watcher');
+    it('should show text "Film Favs"', () => {
+      expect(wrapper.find('h1')).to.have.text('Film Favs');
     });
   });
 });
