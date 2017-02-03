@@ -16,6 +16,7 @@ export default class PopularMovies extends Component {
           <input
             value='Show Upcoming'
             className='btn'
+            readOnly
           />
         </Link>
         <h2>Popular</h2>
@@ -29,5 +30,8 @@ export default class PopularMovies extends Component {
 
 PopularMovies.propTypes = {
   movies: React.PropTypes.array,
-  popularMovies: React.PropTypes.object,
+  popularMovies: React.PropTypes.oneOfType([
+    React.PropTypes.object,
+    React.PropTypes.array,
+  ]),
 };

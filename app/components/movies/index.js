@@ -19,6 +19,7 @@ export default class Movies extends Component {
           <input
             value='Show Popular'
             className='btn'
+            readOnly
           />
         </Link>
         <h2>Upcoming</h2>
