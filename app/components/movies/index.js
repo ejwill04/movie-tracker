@@ -10,7 +10,7 @@ export default class Movies extends Component {
     const newMoviesList = moviesList === undefined
       ? null
       : moviesList.map(m => (
-          <MovieCard {...this.props} data={m} key={m.id} />
+        <MovieCard {...this.props} data={m} key={m.id} />
         ));
 
     return (
@@ -19,6 +19,7 @@ export default class Movies extends Component {
           <input
             value='Show Popular'
             className='btn'
+            readOnly
           />
         </Link>
         <h2>Upcoming</h2>

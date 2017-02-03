@@ -126,3 +126,9 @@ export default class Login extends React.Component {
     );
   };
 };
+
+Login.propTypes = {
+  setLoginErrorMessage: React.PropTypes.string,
+  setActiveUser: React.PropTypes.number,
+  errorMessage: React.PropTypes.string,
+};
