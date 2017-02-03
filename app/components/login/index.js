@@ -99,14 +99,16 @@ export default class Login extends React.Component {
           type='text'
           placeholder='email'
           ref='email'
-          value='tman2272@aol.com'
+          // value={email}
+          // value='tman2272@aol.com'
         />
         <input
           className='input-text'
           type='password'
           placeholder='password'
           ref='password'
-          value='password'
+          // value={password}
+          // value='password'
         />
         <div className='btn-container' >
           <input

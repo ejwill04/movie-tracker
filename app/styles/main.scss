@@ -106,11 +106,55 @@ h1 {
 
 .fav-status-true {
   background-color: $btn-login-bg-color;
-    &:hover {
-      background-color: #558B2F;
-    }
+
+  &:hover {
+    background-color: #558B2F;
+  }
 }
 
 .movie-title {
   min-height: 40px;
+}
+
+.bg {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  z-index: -999;
+  filter: opacity(25%);
+
+  .movie-desc-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    min-width: 50%;
+    min-height: 50%;
+  }
+}
+
+.movie-desc-title {
+  font-size: 3em;
+}
+
+.movie-desc-vote-avg {
+  font-size: 2em;
+  font-weight: lighter;
+}
+
+.movie-desc-overview {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  filter: opacity(75%);
+  background-color: $background;
+}
+
+.movie-desc-poster {
+  width: auto;
+  height: 50vh;
 }

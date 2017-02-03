@@ -4,8 +4,8 @@ import MovieCard from '../moviecard';
 export default class Favorites extends Component {
 
   render() {
-    let favoritesList;
-    if (!this.props.movies) {
+    let favoritesList = [];
+    if (!this.props.movies || !this.props.popularMovies) {
       return null;
     }
 

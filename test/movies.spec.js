@@ -13,7 +13,7 @@ describe('<Movies />', () => {
     });
 
     it('should show text "Now Playing"', () => {
-      expect(wrapper.find('div')).to.contain.text('Now Playing');
+      expect(wrapper.find('h2')).to.contain.text('Upcoming');
     });
   });
 });

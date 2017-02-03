@@ -10,6 +10,7 @@ import MoviesContainer from './containers/MoviesContainer';
 import LoginContainer from './containers/LoginContainer';
 import FavoritesContainer from './containers/FavoritesContainer';
 import PopularMoviesContainer from './containers/PopularMoviesContainer';
+import MovieDescriptionContainer from './containers/MovieDescriptionContainer';
 
 require('./styles/main');
 
@@ -24,6 +25,7 @@ const router = (
       <Route component={LoginContainer} path='/login' />
       <Route component={PopularMoviesContainer} path='/popular' />
       <Route component={FavoritesContainer} path='/favorites' />
+      <Route component={MovieDescriptionContainer} path='/description/:id' />
     </Route>
   </Router>
 );
