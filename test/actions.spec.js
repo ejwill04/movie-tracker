@@ -54,9 +54,9 @@ describe('actions', () => {
   });
 
   describe('should create an action TOGGLE_FAVORITE to set/unset a movie as a favorite', () => {
-    const action;
-    const data;
-    const favoriteId = 1;
+    let action;
+    let data;
+    let favoriteId = 1;
 
     beforeEach(() => {
       data = { title: 'movieTitle' };

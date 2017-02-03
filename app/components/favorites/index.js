@@ -4,12 +4,17 @@ import MovieCard from '../moviecard';
 export default class Favorites extends Component {
 
   render() {
-    let favoritesList;
+    let favoritesList = [];
     if (!this.props.movies) {
       return null;
     }
 
-    favoritesList = (this.props.movies).concat(this.props.popularMovies) || [];
+    const upcomingMoviesList = this.props.movies;
+    const popularMoviesList = this.props.popularMovies;
+
+    // favoritesList = upcomingMoviesList.concat(popularMoviesList) || [];
+    favoritesList.push(upcomingMoviesList);
+    favoritesList.push(popularMoviesList);
 
     let favoritesAssociativeArray = {};
     for (let i = 0; i < favoritesList.length; i++) {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from './setup';
+import { state as stubAppState } from './fixtures/stubState';
 
 import Favorites from '../app/components/favorites';
 
@@ -9,7 +10,12 @@ describe('<Favorites />', () => {
     let wrapper;
 
     beforeEach(() => {
-      wrapper = shallow(<Favorites />);
+      wrapper = shallow(
+        <Favorites
+          movies={stubAppState.movies}
+          popularMovies={stubAppState.movies}
+        />
+      );
     });
 
     it('should show text "Favorites"', () => {
