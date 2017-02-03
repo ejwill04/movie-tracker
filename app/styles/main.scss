@@ -119,6 +119,7 @@ h1 {
 
 .movie-desc {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   flex-direction: row;
@@ -127,7 +128,7 @@ h1 {
 .movie-text-data {
   background-color: $background;
   filter: opacity(50%);
-  margin-left: 20px;
+  margin: 12px;
   p {
     filter: opacity(100%);
   }
@@ -144,6 +145,7 @@ h1 {
   width: 200%;
   height: 200%;
   z-index: -999;
+  overflow: hidden;
   filter: opacity(25%);
 
   .movie-desc-backdrop {
@@ -174,7 +176,7 @@ h1 {
 }
 
 .movie-desc-poster {
+  margin: 12px;
   width: auto;
   height: 50vh;
-  // z-index: 1;
 }
