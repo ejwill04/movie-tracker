@@ -5,16 +5,11 @@ export default class Favorites extends Component {
 
   render() {
     let favoritesList = [];
-    if (!this.props.movies) {
+    if (!this.props.movies || !this.props.popularMovies) {
       return null;
     }
 
-    const upcomingMoviesList = this.props.movies;
-    const popularMoviesList = this.props.popularMovies;
-
-    // favoritesList = upcomingMoviesList.concat(popularMoviesList) || [];
-    favoritesList.push(upcomingMoviesList);
-    favoritesList.push(popularMoviesList);
+    favoritesList = (this.props.movies).concat(this.props.popularMovies) || [];
 
     let favoritesAssociativeArray = {};
     for (let i = 0; i < favoritesList.length; i++) {
