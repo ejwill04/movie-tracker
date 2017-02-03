@@ -55,7 +55,7 @@ export default class App extends Component {
           />
         </Link>
       );
-    } else if (window.location.pathname === '/') {
+    } else if (window.location.pathname === '/' || window.location.pathname === '/popular') {
       return (
         <Link to='/favorites'>
           <input className='btn'

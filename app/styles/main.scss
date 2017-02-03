@@ -44,9 +44,8 @@ h1 {
   margin: 20px;
   padding: 10px;
   background: $card-bg-color;
+  box-shadow: 7px 7px 7px #888888;
 }
-
-
 
 .btn {
   @include button-input-style;
