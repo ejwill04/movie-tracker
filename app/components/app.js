@@ -7,7 +7,7 @@ export default class App extends Component {
   componentDidMount() {
     Promise.all([
       this.fetchMovies('now_playing', this.props.addMovies),
-      this.fetchMovies('popular', this.props.addPopularMovies)
+      this.fetchMovies('popular', this.props.addPopularMovies),
     ]).then(() => {
       const userId = JSON.parse(localStorage.getItem('activeUserId'));
       if (userId) {
@@ -78,3 +78,13 @@ export default class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  addMovies: React.PropTypes.func,
+  setActiveUser: React.PropTypes.object,
+  user: React.PropTypes.number,
+  setFavorites: React.PropTypes.object,
+  addPopularMovies: React.PropTypes.object,
+  children: React.PropTypes.object,
+  popularMovies: React.PropTypes.object,
+};

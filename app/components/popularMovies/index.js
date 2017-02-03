@@ -29,4 +29,5 @@ export default class PopularMovies extends Component {
 
 PopularMovies.propTypes = {
   movies: React.PropTypes.array,
+  popularMovies: React.PropTypes.object,
 };
