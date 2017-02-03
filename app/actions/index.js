@@ -12,6 +12,13 @@ export const setActiveUser = (data) => {
   };
 };
 
+export const setFavorites = (data) => {
+  return {
+    type: 'SET_FAVORITES',
+    data,
+  };
+};
+
 export const setLoginErrorMessage = (data) => {
   return {
     type: 'SET_LOGIN_ERROR_MESSAGE',
