@@ -2,8 +2,20 @@ const popularMovies = (state = [], action) => {
   switch (action.type) {
     case 'ADD_POPULAR_MOVIES':
       return action.data;
+    case 'SET_FAVORITES':
+      if (action.data.length === 0) {
+        return state;
+      }
+      let newState = state.results.map((movie, index) => {
+        if (action.data.some(favorite => movie.id === favorite.movie_id)) {
+          return Object.assign({}, movie, { favorited: true });
+        } else {
+          return movie;
+        }
+      });
+      return Object.assign({}, state, { results: newState });
     case 'TOGGLE_FAVORITE':
-      const newState = state.results.map((movie, index) => {
+      newState = state.results.map((movie, index) => {
         if (movie.id === action.data.id) {
           if (movie.favorited) {
             return Object.assign({}, action.data, { favorited: false }, { favoriteId: -1 });

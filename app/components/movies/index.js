@@ -6,7 +6,7 @@ export default class Movies extends Component {
 
   render() {
     const moviesList = this.props.movies;
-    console.log('movies',this.props);
+    // console.log('movies',this.props);
     const newMoviesList = moviesList === undefined
       ? null
       : moviesList.map(m => (

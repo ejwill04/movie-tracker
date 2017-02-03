@@ -3,15 +3,14 @@ const movies = (state = [], action) => {
     case 'ADD_MOVIES':
       return action.data;
     case 'SET_FAVORITES':
-      console.log(action.data);
+      if (action.data.length === 0) {
+        return state;
+      }
       let newState = state.results.map((movie, index) => {
-        for (let i = 0; i < action.data.length; i++) {
-          if (movie.id === action.data[i]['movie_id']) {
-            return Object.assign({}, movie.data, { favorited: true });
-          } else {
-            console.log('return same movie');
-            return movie;
-          }
+        if (action.data.some(favorite => movie.id === favorite.movie_id)) {
+          return Object.assign({}, movie, { favorited: true });
+        } else {
+          return movie;
         }
       });
       return Object.assign({}, state, { results: newState });

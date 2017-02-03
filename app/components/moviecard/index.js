@@ -6,7 +6,7 @@ const showDescription = (overview) => {
 
 const handleFavoriteButtonClick = (props) => {
   const { user } = props;
-  console.log(user.id);
+  // console.log(user.id);
   const { id: movie_id, title, poster_path, release_date, vote_average, overview, favoriteId, favorited } = props.data;
   if (favorited) {
     fetch(`http://localhost:3000/api/users/${user.id}/favorites/${movie_id}`,
@@ -44,10 +44,10 @@ const handleFavoriteButtonClick = (props) => {
       .then(response => response.json())
       .then(payload => {
         if (payload.status === 'success') {
-          console.log(payload.id);
+          // console.log(payload.id);
           props.toggleFavorite(props.data, payload.id);
         } else {
-          console.log(payload);
+          // console.log(payload);
         }
       });
   }

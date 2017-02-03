@@ -46,11 +46,10 @@ export default class Login extends React.Component {
         method: 'POST',
         body: JSON.stringify({ email: email, password: password }),
       }).then(response => {
-        this.validateUser(response);
-        response.json();
-      }).then(payload =>
-        localStorage.setItem('activeUserId', JSON.stringify(payload.id))
-      );
+        return this.validateUser(response);
+      }).then(payload => {
+        return localStorage.setItem('activeUserId', JSON.stringify(payload.data.id))
+      });
   }
 
   validateCreateUser(status, email, id) {
@@ -68,13 +67,15 @@ export default class Login extends React.Component {
   }
 
   validateUser(response) {
+    const api = response.json();
     if (response.status === 200) {
-      response.json().then(payload =>
+      api.then(payload =>
          this.props.setActiveUser(payload.data));
       browserHistory.push('/');
     } else {
       this.props.setLoginErrorMessage('*Your email and password do not match*');
     }
+    return api;
   }
 
   validateEmail(email) {
