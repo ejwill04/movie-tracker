@@ -37,3 +37,8 @@ export default class Favorites extends Component {
     );
   }
 }
+
+Favorites.propTypes = {
+  movies: React.PropTypes.array,
+  popularMovies: React.PropTypes.array,
+};
