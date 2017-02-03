@@ -1,6 +1,6 @@
-const movies = (state = [], action) => {
+const popularMovies = (state = [], action) => {
   switch (action.type) {
-    case 'ADD_MOVIES':
+    case 'ADD_POPULAR_MOVIES':
       return action.data;
     case 'SET_FAVORITES':
       if (action.data.length === 0) {
@@ -32,4 +32,4 @@ const movies = (state = [], action) => {
   }
 };
 
-export default movies;
+export default popularMovies;

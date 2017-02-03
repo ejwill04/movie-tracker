@@ -44,14 +44,14 @@ h1 {
   margin: 20px;
   padding: 10px;
   background: $card-bg-color;
+  box-shadow: 7px 7px 7px #888888;
 }
-
-
 
 .btn {
   @include button-input-style;
   background: $btn-bg-color;
   color: $btn-text-color;
+  text-align: center;
 
   &:hover {
     background: $btn-hover-bg-color;

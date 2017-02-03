@@ -12,6 +12,13 @@ export const setActiveUser = (data) => {
   };
 };
 
+export const setFavorites = (data) => {
+  return {
+    type: 'SET_FAVORITES',
+    data,
+  };
+};
+
 export const setLoginErrorMessage = (data) => {
   return {
     type: 'SET_LOGIN_ERROR_MESSAGE',
@@ -24,5 +31,12 @@ export const toggleFavorite = (data, favoriteId) => {
     type: 'TOGGLE_FAVORITE',
     data,
     favoriteId,
+  };
+};
+
+export const addPopularMovies = (data) => {
+  return {
+    type: 'ADD_POPULAR_MOVIES',
+    data,
   };
 };

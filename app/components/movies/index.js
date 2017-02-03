@@ -1,17 +1,27 @@
 import React, { Component } from 'react';
 import MovieCard from '../moviecard';
+import { Link } from 'react-router';
 
 export default class Movies extends Component {
 
   render() {
-    const moviesList = this.props.movies || [];
-    const newMoviesList = moviesList.map(m => (
-      <MovieCard {...this.props} data={m} key={m.id} />
-    ));
+    const moviesList = this.props.movies;
+    // console.log('movies',this.props);
+    const newMoviesList = moviesList === undefined
+      ? null
+      : moviesList.map(m => (
+          <MovieCard {...this.props} data={m} key={m.id} />
+        ));
 
     return (
       <div>
-        <h2>Now Playing</h2>
+        <Link to='/popular'>
+          <input
+            value='Show Popular'
+            className='btn'
+          />
+        </Link>
+        <h2>Upcoming</h2>
         <section className='movie-list'>
           {newMoviesList}
         </section>
