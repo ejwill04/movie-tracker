@@ -29,7 +29,10 @@ export default class Login extends React.Component {
           method: 'POST',
           body: JSON.stringify({ name: email, email: email, password: password }),
         }).then(response => response.json())
-        .then(payload => this.validateCreateUser(payload.status, email, payload.id));
+        .then(payload => {
+          this.validateCreateUser(payload.status, email, payload.id);
+          localStorage.setItem('activeUserId', JSON.stringify(payload.id));
+        });
     }
   }
 
@@ -42,7 +45,12 @@ export default class Login extends React.Component {
         },
         method: 'POST',
         body: JSON.stringify({ email: email, password: password }),
-      }).then(response => this.validateUser(response));
+      }).then(response => {
+        this.validateUser(response);
+        response.json();
+      }).then(payload =>
+        localStorage.setItem('activeUserId', JSON.stringify(payload.id))
+      );
   }
 
   validateCreateUser(status, email, id) {

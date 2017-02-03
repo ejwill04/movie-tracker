@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { addMovies, addPopularMovies } from '../actions';
+import { addMovies, addPopularMovies, setActiveUser } from '../actions';
 import App from '../components/app';
 
 const mapStateToProps = (state) => {
@@ -13,6 +13,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     addPopularMovies: (data) => {
       dispatch(addPopularMovies(data));
+    },
+    setActiveUser: (data) => {
+      dispatch(setActiveUser(data));
     },
   };
 };

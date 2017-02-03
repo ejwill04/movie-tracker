@@ -5,6 +5,21 @@ import { API_KEY } from '../key';
 export default class App extends Component {
 
   componentDidMount() {
+    const userId = JSON.parse(localStorage.getItem('activeUserId'));
+    console.log(userId);
+    if (userId) {
+      this.props.setActiveUser({ id: userId });
+      fetch(`http://localhost:3000/api/users/${userId}/favorites`, {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        method: 'GET',
+      }).then(response => response.json())
+      .then(payload => {
+        console.log(payload);
+      });
+    }
     this.fetchMovies('now_playing', this.props.addMovies);
     this.fetchMovies('popular', this.props.addPopularMovies);
   }
