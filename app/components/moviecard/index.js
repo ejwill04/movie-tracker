@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const showDescription = (overview) => {
   // console.log(overview);
@@ -54,7 +55,7 @@ const handleFavoriteButtonClick = (props) => {
 };
 
 const MovieCard = (props) => {
-  const { title, poster_path, overview, favorited } = props.data;
+  const { id, title, poster_path, overview, favorited } = props.data;
   // console.log()
   return (
     <article
@@ -62,11 +63,14 @@ const MovieCard = (props) => {
       className='movie-item'>
       {/* <p className='movie-title'>{title}</p> */}
 
-      <img
-        src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
-        alt={`movie-poster-${title}`}
-        height='300'
-      />
+      <Link to={`/description/${id}`}>
+        <img
+          className='list-poster'
+          src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+          alt={`movie-poster-${title}`}
+          height='300'
+        />
+      </Link>
 
       { props.user
           ? <input
@@ -74,7 +78,9 @@ const MovieCard = (props) => {
             type='button'
             value='favorite'
             onClick={() => handleFavoriteButtonClick(props)}
-           />
+           >
+             {/* <i className={`${props.favorited ? 'fav-status-true' : ''} fa fa-star fa-2x`}></i> */}
+           </input>
           : null
       }
     </article>
