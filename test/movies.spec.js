@@ -10,7 +10,6 @@ describe('<Movies />', () => {
     let wrapper;
 
     beforeEach(() => {
-      console.log(state.movies.results);
       wrapper = shallow(<Movies movies={state.movies.results} />);
     });
 
