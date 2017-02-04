@@ -48,7 +48,7 @@ export default class Login extends React.Component {
       }).then(response => {
         return this.validateUser(response);
       }).then(payload => {
-        return localStorage.setItem('activeUserId', JSON.stringify(payload.data.id))
+        return localStorage.setItem('activeUserId', JSON.stringify(payload.data.id));
       });
   }
 
@@ -67,20 +67,20 @@ export default class Login extends React.Component {
   }
 
   validateUser(response) {
-    const api = response.json();
+    const jsonResponse = response.json();
     if (response.status === 200) {
-      api.then(payload =>
+      jsonResponse.then(payload =>
          this.props.setActiveUser(payload.data));
       browserHistory.push('/');
     } else {
       this.props.setLoginErrorMessage('*Your email and password do not match*');
     }
-    return api;
+    return jsonResponse;
   }
 
   validateEmail(email) {
-    let emailPattern = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
-    if(!emailPattern.test(email)) {
+    let emailPattern = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+    if (!emailPattern.test(email)) {
       this.props.setLoginErrorMessage('*Please enter a valid email address');
       return false;
     } else {
@@ -99,16 +99,12 @@ export default class Login extends React.Component {
           type='text'
           placeholder='email'
           ref='email'
-          // value={email}
-          // value='tman2272@aol.com'
         />
         <input
           className='input-text'
           type='password'
           placeholder='password'
           ref='password'
-          // value={password}
-          // value='password'
         />
         <div className='btn-container' >
           <input
