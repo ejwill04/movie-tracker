@@ -15,5 +15,11 @@ describe('<Movies />', () => {
     it('should show text "Now Playing"', () => {
       expect(wrapper.find('h2')).to.contain.text('Upcoming');
     });
+
+    it('should have a link to visit popular movies', () => {
+      const Link = wrapper.find('Link');
+      expect(Link.props().to).to.equal('/popular');
+      expect(Link).to.have.props({ to: '/popular' });
+    });
   });
 });

@@ -81,11 +81,11 @@ export default class App extends Component {
 App.propTypes = {
   addMovies: React.PropTypes.func,
   setActiveUser: React.PropTypes.func,
-  user: React.PropTypes.oneOfType([
-    React.PropTypes.object,
-    React.PropTypes.bool]),
   setFavorites: React.PropTypes.func,
   addPopularMovies: React.PropTypes.func,
   children: React.PropTypes.object,
   popularMovies: React.PropTypes.object,
+  user: React.PropTypes.oneOfType([
+    React.PropTypes.object,
+    React.PropTypes.bool]),
 };

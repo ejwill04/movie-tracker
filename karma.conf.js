@@ -23,9 +23,9 @@ module.exports = function (config) {
         'react/lib/ReactContext': true,
       },
       resolve: webpackConfig.resolve,
-      node: {
-        fs: 'empty',
-      },
+      // node: {
+      //   fs: 'empty',
+      // },
     },
     webpackServer: {
       stats: 'errors-only',
