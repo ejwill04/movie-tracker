@@ -1,18 +1,10 @@
 import React from 'react';
 
 const MovieDescription = (props) => {
-
-  // props.movies
-  // props.popularMovies
-  const allMovies = props.movies.concat(props.popularMovies)
-
-  console.log(allMovies);
-  console.log(props.params.id)
-  const movieId = props.params.id
-  const movie = allMovies.find(m => m.id == movieId)
-  console.log(movie)
-
-  const { id, title, poster_path, overview, favorited, release_date, backdrop_path, vote_average, vote_count } = movie;
+  const allMovies = props.movies.concat(props.popularMovies);
+  const movieId = props.params.id;
+  const movie = allMovies.find(m => m.id == movieId);
+  const { title, poster_path, overview, release_date, backdrop_path, vote_average } = movie;
   return (
     <div className='movie-desc'>
       <img
@@ -36,3 +28,9 @@ const MovieDescription = (props) => {
 };
 
 export default MovieDescription;
+
+MovieDescription.propTypes = {
+  movies: React.PropTypes.array,
+  params: React.PropTypes.object,
+  popularMovies: React.PropTypes.array,
+};
