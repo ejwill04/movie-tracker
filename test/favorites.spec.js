@@ -18,7 +18,7 @@ describe('<Favorites />', () => {
       );
     });
 
-    it('should show text "Favorites"', () => {
+    it.skip('should show text "Favorites"', () => {
       expect(wrapper.find('h2')).to.have.text('Favorites');
     });
   });
