@@ -78,6 +78,16 @@ describe('reducers', function () {
 
       expect(movies(this.state.movies, this.toggleFavoriteAction)).to.not.deep.equal(this.state.movies);
     });
+
+    it('should return state if no favorites exist', () => {
+      this.action = { type: 'SET_FAVORITES', data: [] };
+      expect(movies(this.state.movies, this.action)).to.deep.equal(this.state.movies);
+    });
+
+    it('should return the favorites that exist in state', () => {
+      this.action = { type: 'SET_FAVORITES', data: [{ movie_id: 313369 }] };
+      expect(movies(this.state.movies, this.action)).to.not.deep.equal(this.state.movies);
+    });
   });
 
   describe('favoritesReducer', function () {
