@@ -11,11 +11,13 @@ export default class Favorites extends Component {
 
     favoritesList = (this.props.movies).concat(this.props.popularMovies) || [];
 
+    // removes duplicates
     let favoritesAssociativeArray = {};
     for (let i = 0; i < favoritesList.length; i++) {
       favoritesAssociativeArray[favoritesList[i]['id']] = favoritesList[i];
     }
 
+    // sets our new favorites array
     const uniqFavoritesList = [];
     for (let id in favoritesAssociativeArray) {
       if (favoritesAssociativeArray.hasOwnProperty(id)) {

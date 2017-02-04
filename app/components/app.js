@@ -41,8 +41,7 @@ export default class App extends Component {
           />
         </Link>
       );
-    }
-    else return;
+    } else return;
   }
 
   toggleBtnPath() {
