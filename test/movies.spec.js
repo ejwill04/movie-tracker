@@ -1,8 +1,7 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import { expect } from './setup';
 import { state } from './fixtures/stubState';
-import sinon from 'sinon';
 import Movies from '../app/components/movies';
 
 describe('<Movies />', () => {

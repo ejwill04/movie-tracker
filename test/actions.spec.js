@@ -71,4 +71,21 @@ describe('actions', () => {
       expect(actions.toggleFavorite(data, favoriteId)).to.deep.equal(action);
     });
   });
+
+  describe('should create an action append_movies to add additional movies to state', () => {
+    let action;
+    let data;
+
+    beforeEach(() => {
+      data = { title: 'movieTitle' };
+      action = {
+        type: 'APPEND_MOVIES',
+        data,
+      };
+    });
+
+    it('should create an action to append additional movies to the page', () => {
+      expect(actions.appendMovies(data)).to.deep.equal(action);
+    });
+  });
 });

@@ -40,5 +40,7 @@ export default class Movies extends Component {
 }
 
 Movies.propTypes = {
+  page: React.PropTypes.number,
   movies: React.PropTypes.array,
+  appendMovies: React.PropTypes.func,
 };
