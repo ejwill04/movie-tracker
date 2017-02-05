@@ -1,10 +1,15 @@
+/* eslint camelcase: 0, eqeqeq: 0 */
+
 import React from 'react';
+import moment from 'moment';
 
 const MovieDescription = (props) => {
   const allMovies = props.movies.concat(props.popularMovies);
   const movieId = props.params.id;
   const movie = allMovies.find(m => m.id == movieId);
   const { title, poster_path, overview, release_date, backdrop_path, vote_average } = movie;
+  const releaseDate = moment(release_date).format('MMMM Do YYYY');
+
   return (
     <div className='movie-desc'>
       <img
@@ -18,7 +23,7 @@ const MovieDescription = (props) => {
       <div className='movie-text-data'>
         <p className='movie-desc-title'>{movie.title}</p>
         <p className='movie-desc-vote-avg'>Rating: {vote_average}/10</p>
-        <p className='movie-desc-release-date'>Release Date: {release_date}</p>
+        <p className='movie-desc-release-date'>Release Date: {releaseDate}</p>
         <p className='movie-desc-overview'>{overview}</p>
 
       </div>
