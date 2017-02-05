@@ -1,3 +1,5 @@
+/* eslint camelcase: 0 */
+
 import React from 'react';
 import { Link } from 'react-router';
 
@@ -55,8 +57,8 @@ const MovieCard = (props) => {
       <Link to={`/description/${id}`}>
         <img
           className='list-poster'
-          src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
-          alt={`movie-poster-${title}`}
+          src={poster_path ? `https://image.tmdb.org/t/p/w500/${poster_path}` : `http://assets.flicks.co.nz/images/movies/poster/500x735.png`}
+          alt={poster_path ? `movie-poster-${title}` : `movie-poster-not-found`}
           height='300'
         />
       </Link>
