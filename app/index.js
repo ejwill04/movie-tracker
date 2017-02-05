@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import React from 'react';
+import { Router, Route, IndexRoute, browserHistory, IndexRedirect } from 'react-router';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import rootReducer from './reducers';
@@ -25,7 +25,8 @@ const router = (
       <Route component={LoginContainer} path='/login' />
       <Route component={PopularMoviesContainer} path='/popular' />
       <Route component={FavoritesContainer} path='/favorites' />
-      <Route component={MovieDescriptionContainer} path='/description/:id' />
+      <Route component={MovieDescriptionContainer} path='/description/:id' >
+    </Route>
     </Route>
   </Router>
 );

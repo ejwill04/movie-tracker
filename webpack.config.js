@@ -34,6 +34,9 @@ module.exports = {
         test: /\.json$/,
         loader: 'json-loader',
       },
+      { test: /\.png$/,
+        loader: 'url-loader?mimetype=image/png',
+      },
     ],
   },
   sassLoader: {
@@ -45,6 +48,6 @@ module.exports = {
     alias: {
       sinon: 'sinon/pkg/sinon.js',
     },
-    extensions: ['', '.js', '.jsx', '.json', '.scss', '.css'],
+    extensions: ['', '.js', '.jsx', '.json', '.scss', '.css', '.png'],
   },
 };

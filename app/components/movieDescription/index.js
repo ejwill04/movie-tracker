@@ -1,4 +1,5 @@
 /* eslint camelcase: 0, eqeqeq: 0 */
+import { browserHistory } from 'react-router';
 
 import React from 'react';
 import moment from 'moment';
@@ -14,11 +15,11 @@ const MovieDescription = (props) => {
     <div className='movie-desc'>
       <img
         className='movie-desc-poster'
-        src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
-        alt={`movie-poster-${title}`}
+        src={poster_path ? `https://image.tmdb.org/t/p/w500/${poster_path}` : `http://assets.flicks.co.nz/images/movies/poster/500x735.png`}
+        alt={poster_path ? `movie-poster-${title}` : `movie-poster-not-found`}
       />
       <div className='bg'>
-        <img className='movie-desc-backdrop' src={`https://image.tmdb.org/t/p/w500/${backdrop_path}`} />
+        <img className='movie-desc-backdrop' src={backdrop_path ? `https://image.tmdb.org/t/p/w500/${backdrop_path}` : null} />
       </div>
       <div className='movie-text-data'>
         <p className='movie-desc-title'>{movie.title}</p>
