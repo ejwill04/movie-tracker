@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-// import sinon from 'sinon';
+import sinon from 'sinon';
 import { expect } from './setup';
 
 import App from '../app/components/app';
@@ -14,10 +14,10 @@ describe('<Home />', function () {
       expect(wrapper.find('h1')).to.have.text('Film Favs');
     });
 
-    // it.skip('has a componentDidMount method', () => {
-    //   sinon.spy(App.prototype, 'componentDidMount');
-    //   mount(<App />);
-    //   expect(App.prototype.componentDidMount.calledOnce).to.equal(true);
-    // });
+    it('has a componentDidMount method', () => {
+      sinon.spy(App.prototype, 'componentDidMount');
+      mount(<App />);
+      expect(App.prototype.componentDidMount.calledOnce).to.equal(true);
+    });
   });
 });

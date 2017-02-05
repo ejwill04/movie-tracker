@@ -1,5 +1,7 @@
 const popularMovies = (state = [], action) => {
   switch (action.type) {
+    case 'APPEND_POPULAR_MOVIES':
+      return Object.assign({}, state, { results: state.results.concat(action.data.results), page: action.data.page })
     case 'ADD_POPULAR_MOVIES':
       return action.data;
     case 'SET_FAVORITES':

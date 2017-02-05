@@ -53,8 +53,8 @@ h1 {
 }
 
 .list-poster {
- width: 200px * 1.02;
- height: 300px * 1.02;
+  width: 200px * 1.02;
+  height: 300px * 1.02;
 }
 
 .btn {
@@ -103,6 +103,12 @@ h1 {
   width: 105px;
 }
 
+.btn-more {
+  margin: 40px;
+  padding: 20px;
+  font-size: 1.2em;
+}
+
 .status {
   color: $accent1;
   font-size: .9em;
@@ -119,16 +125,17 @@ h1 {
 
 .movie-desc {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
   flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
 .movie-text-data {
+  margin: 12px;
   background-color: $background;
   filter: opacity(50%);
-  margin: 12px;
+
   p {
     filter: opacity(100%);
   }
@@ -144,19 +151,19 @@ h1 {
   left: -50%;
   width: 200%;
   height: 200%;
-  z-index: -999;
   overflow: hidden;
+  z-index: -999;
   filter: opacity(25%);
 
   .movie-desc-backdrop {
     position: absolute;
     top: 0;
-    left: 0;
     right: 0;
     bottom: 0;
-    margin: auto;
+    left: 0;
     min-width: 50%;
     min-height: 50%;
+    margin: auto;
   }
 }
 
@@ -176,7 +183,7 @@ h1 {
 }
 
 .movie-desc-poster {
-  margin: 12px;
   width: auto;
   height: 50vh;
+  margin: 12px;
 }

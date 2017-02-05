@@ -40,3 +40,17 @@ export const addPopularMovies = (data) => {
     data,
   };
 };
+
+export const appendMovies = (data) => {
+  return {
+    type: 'APPEND_MOVIES',
+    data,
+  };
+};
+
+export const appendPopularMovies = (data) => {
+  return {
+    type: 'APPEND_POPULAR_MOVIES',
+    data,
+  };
+};
