@@ -13,6 +13,9 @@ module.exports = {
     publicPath: '/',
   },
   module: {
+    noParse: [
+      /\/sinon\.js/,
+    ],
     loaders: [
       {
         test: /.jsx?$/,
@@ -39,6 +42,9 @@ module.exports = {
     ],
   },
   resolve: {
+    alias: {
+      sinon: 'sinon/pkg/sinon.js',
+    },
     extensions: ['', '.js', '.jsx', '.json', '.scss', '.css'],
   },
 };

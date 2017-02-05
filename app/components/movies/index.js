@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
 import MovieCard from '../moviecard';
 import { Link } from 'react-router';
+import { API_KEY } from '../../key';
 
 export default class Movies extends Component {
+
+  handleClick(action) {
+    return fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&page=${this.props.page + 1}`)
+    .then(response => response.json())
+    .then(payload => action(payload))
+    .catch(error => console.log(error));
+  }
 
   render() {
     const moviesList = this.props.movies;
@@ -25,6 +33,7 @@ export default class Movies extends Component {
         <section className='movie-list'>
           {newMoviesList}
         </section>
+        <input className='btn btn-more' value='more' type='button' onClick={this.handleClick.bind(this, this.props.appendMovies)} />
       </div>
     );
   }

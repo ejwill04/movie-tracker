@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
 import PopularMovies from '../components/popularMovies';
-import { toggleFavorite } from '../actions';
+import { toggleFavorite, appendPopularMovies } from '../actions';
 
 const mapStateToProps = (state) => {
-  return { popularMovies: state.popularMovies.results, user: state.user };
+  return { popularMovies: state.popularMovies.results, user: state.user, page: state.popularMovies.page };
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -11,6 +11,7 @@ const mapDispatchToProps = (dispatch) => {
     toggleFavorite: (data, favoriteId) => {
       dispatch(toggleFavorite(data, favoriteId));
     },
+    appendPopularMovies: data => dispatch(appendPopularMovies(data)),
   };
 };
 
