@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from './setup';
-import { state as stubAppState } from './fixtures/stubState';
+import { state } from './fixtures/stubState';
 
 import Favorites from '../app/components/favorites';
 
@@ -12,14 +12,18 @@ describe('<Favorites />', () => {
     beforeEach(() => {
       wrapper = shallow(
         <Favorites
-          movies={stubAppState.movies}
-          popularMovies={stubAppState.movies}
+          movies={state.movies.results}
+          popularMovies={{}}
         />
       );
     });
 
-    it.skip('should show text "Favorites"', () => {
+    it('should show text "Favorites"', () => {
       expect(wrapper.find('h2')).to.have.text('Favorites');
+    });
+
+    it('should render renderFavoritesList', () => {
+      expect(wrapper.find('.movie-list').children).to.have.lengthOf(1);
     });
   });
 });
