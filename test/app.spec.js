@@ -11,7 +11,7 @@ describe('<Home />', function () {
 
     it('should show text "Film Favs"', () => {
       wrapper = shallow(<App />);
-      expect(wrapper.find('h1')).to.have.text('Film Favs');
+      expect(wrapper.find('h1')).to.have.text('FilmFavs');
     });
 
     it('has a componentDidMount method', () => {
