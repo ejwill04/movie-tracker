@@ -49,6 +49,7 @@ export const state = {
         vote_count: 849,
         video: false,
         vote_average: 5.2,
+        favorited: true,
       },
       {
         poster_path: '/uSHjeRVuObwdpbECaXJnvyDoeJK.jpg',
@@ -67,6 +68,7 @@ export const state = {
         vote_count: 1195,
         video: false,
         vote_average: 6.3,
+        favorited: true,
       },
       {
         poster_path: '/xGgg2UI20qtEh7mura3RRwP8d3I.jpg',
