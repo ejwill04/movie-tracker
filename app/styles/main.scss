@@ -142,12 +142,16 @@ h1 {
 }
 
 .movie-text-data {
+  height: 50vh;
   margin: 12px;
   background-color: $background;
-  filter: opacity(50%);
+  filter: opacity(70%);
 
   p {
     filter: opacity(100%);
+  }
+  @media (max-width: 600px) {
+    height: auto;
   }
 }
 
@@ -178,10 +182,16 @@ h1 {
 }
 
 .movie-desc-title {
+  max-width: 600px;
+  margin: 20px 20px;
   font-size: 3em;
+  @media (max-width: 600px) {
+    font-size: 2em;
+  }
 }
 
 .movie-desc-vote-avg {
+  margin: 10px;
   font-size: 2em;
   font-weight: lighter;
 }
