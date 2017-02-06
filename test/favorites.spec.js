@@ -32,7 +32,7 @@ describe('<Favorites />', () => {
         <Favorites
         />
       );
-      expect(wrapper).type().to.equal(null);
+      expect(wrapper).type().to.deepEqual(null);
     });
   });
 });
