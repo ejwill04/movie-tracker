@@ -22,8 +22,17 @@ describe('<Favorites />', () => {
       expect(wrapper.find('h2')).to.have.text('Favorites');
     });
 
-    it('should render renderFavoritesList', () => {
-      expect(wrapper.find('.movie-list').children).to.have.lengthOf(1);
+    it('should render three <MovieCard /> components', () => {
+      const MovieCard = wrapper.find('MovieCard');
+      expect(MovieCard).to.have.lengthOf(3);
+    });
+
+    it.skip('should return null if no movies or popularMovies', () => {
+      wrapper = shallow(
+        <Favorites
+        />
+      );
+      expect(wrapper).type().to.equal(null);
     });
   });
 });
