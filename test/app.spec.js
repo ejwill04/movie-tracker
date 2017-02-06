@@ -19,5 +19,11 @@ describe('<Home />', function () {
       mount(<App />);
       expect(App.prototype.componentDidMount.calledOnce).to.equal(true);
     });
+
+    it.skip('will Link to / when location is /favorites', () => {
+      sinon.spy(App.prototype, 'toggleBtnPath');
+      mount(<App />);
+      expect(App.prototype.toggleBtnPath.calledOnce).to.equal(true);
+    });
   });
 });
