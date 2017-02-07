@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Login from '../components/login';
-import { setActiveUser, setLoginErrorMessage } from '../actions';
+import { setActiveUser, setLoginErrorMessage, setFavorites } from '../actions';
 
 const mapStateToProps = (state) => {
   return { user: state.user, errorMessage: state.error };
@@ -13,6 +13,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     setLoginErrorMessage: (data) => {
       dispatch(setLoginErrorMessage(data));
+    },
+    setFavorites: (data) => {
+      dispatch(setFavorites(data));
     },
   };
 };

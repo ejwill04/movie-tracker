@@ -1,3 +1,5 @@
+/* eslint no-useless-escape: 0, react/jsx-no-bind: 1 */
+
 import React from 'react';
 import { browserHistory } from 'react-router';
 
@@ -48,6 +50,14 @@ export default class Login extends React.Component {
       }).then(response => {
         return this.validateUser(response);
       }).then(payload => {
+        fetch(`http://localhost:3000/api/users/${payload.data.id}/favorites`, {
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+          },
+          method: 'GET',
+        }).then(response => response.json())
+        .then(payload => this.props.setFavorites(payload.data));
         return localStorage.setItem('activeUserId', JSON.stringify(payload.data.id));
       });
   }
@@ -135,4 +145,5 @@ Login.propTypes = {
     React.PropTypes.func,
   ]),
   errorMessage: React.PropTypes.string,
+  setFavorites: React.PropTypes.func,
 };
